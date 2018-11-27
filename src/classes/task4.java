@@ -9,20 +9,9 @@ import java.util.Random;
 
 public class task4 {
     public static void main(String[] args) {
-        Generator generator = new Generator();
-        Student[] students = new Student[10];
-        for (int i = 0; i < students.length; i++) {
-            students[i] = new Student(generator.generateName(),
-                    generator.generateLastName(),
-                    generator.generateGroup(),
-                    generator.generateMarks()
-            );
-        }
-
-        for (int i = 0; i < students.length; i++) {
-            students[i].printStudent();
-
-        }
+        Construct construct = new Construct();
+        construct.sortStudents();
+        construct.printStudents();
     }
 }
 
@@ -44,7 +33,7 @@ class Generator {
 
     public int generateGroup() {
         Random random = new Random();
-        int res = random.nextInt(5 + 1);
+        int res = random.nextInt(4 + 2);
         return res;
     }
 
@@ -55,6 +44,44 @@ class Generator {
             tmp[i] = random.nextInt(3) + 2;
         }
         return tmp;
+    }
+}
+
+class Construct {
+    Student[] students;
+
+    Construct() {
+        Generator generator = new Generator();
+        Random random = new Random();
+        students = new Student[10];
+        for (int i = 0; i < students.length; i++) {
+            students[i] = new Student(
+                    generator.generateName(),
+                    generator.generateLastName(),
+                    generator.generateGroup(),
+                    generator.generateMarks()
+            );
+        }
+    }
+
+    public void sortStudents() {
+        Student tmp;
+        for (int i = 0; i < students.length; i++) {
+            for (int j = 0; j < students.length - 1; j++) {
+                if (students[j].getAverage() > students[j + 1].getAverage()) {
+                    tmp = students[j];
+                    students[j] = students[j + 1];
+                    students[j + 1] = tmp;
+                }
+            }
+        }
+    }
+
+    public void printStudents() {
+        for (int i = 0; i < students.length; i++) {
+            students[i].printStudent();
+            System.out.println("___________________________");
+        }
     }
 }
 
