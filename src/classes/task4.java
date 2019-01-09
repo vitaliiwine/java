@@ -18,6 +18,7 @@ public class task4 {
 class Generator {
     String[] names = {"John", "Carl", "Dan", "Michael", "Jeffrey", "Connor"};
     String[] lastNames = {"McDonald", "McGregor", "Whiteman", "Brown", "Broke"};
+    String[] bookNames = {"Lion Heart", "Graveyard", "Heart Of Steel", "Made By War", "Gone With The Wind"};
 
     public String generateName() {
         Random random = new Random();
@@ -31,9 +32,26 @@ class Generator {
         return res;
     }
 
+    public String generateBookName(){
+        Random random = new Random();
+        return bookNames[random.nextInt(bookNames.length)];
+    }
+
+    public int generateYear() {
+        Random random = new Random();
+        int res = random.nextInt(200) + 1800;
+        return res;
+    }
+
+    public int generatePages(){
+        Random random = new Random();
+        int res = random.nextInt(500) + 300;
+        return res;
+    }
+
     public int generateGroup() {
         Random random = new Random();
-        int res = random.nextInt(4 + 2);
+        int res = random.nextInt(2) + 4;
         return res;
     }
 
