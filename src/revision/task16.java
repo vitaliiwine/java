@@ -1,5 +1,9 @@
 package revision;
 
+/*
+Сумма элементов двумерного массива
+ */
+
 public class task16 {
     public static void main(String[] args) {
         int [][] arr = {{2, 4, 8}, {10, 12, 14}};
