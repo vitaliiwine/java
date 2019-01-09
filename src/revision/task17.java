@@ -12,13 +12,25 @@ public class task17 {
 
         int max = 100;
 
+
         for (int c = 1; c < max; c++) {
             for (int b = 1; b < max; b++) {
-                for (int a = 0; a < max; a++) {
-                    if (Math.pow(c, 2) == Math.pow(a, 2) + Math.pow(b, 2));
-
+                for (int a = b; a < max; a++) {
+                    if (Math.pow(c, 2) == Math.pow(a, 2) + Math.pow(b, 2)) {
+                        if (func(a, b) == 1 && func(a, c) == 1 && func(b, c) == 1) {
+                            System.out.println(a + " " + b + " " + c);
+                        }
+                    }
                 }
             }
         }
     }
+
+    static int func(int a, int b) {
+        if (b == 0)
+            return a;
+        return func(b, a % b);
+    }
 }
+
+
