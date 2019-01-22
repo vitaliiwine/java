@@ -19,10 +19,12 @@ public class task6 {
 
 
         for (Character character : characters) {
-            System.out.println(character);
+           if(character.equals(characters.last()))
+               System.out.println("The winner is ");
+               System.out.println(character);
         }
 
-        System.out.println("The winner is " + "\n" + characters.last());
+//        System.out.println("The winner is " + "\n" + characters.last());
 
     }
 }
@@ -123,7 +125,7 @@ class Builder {
 
     public static int rnd(int min, int max) {
         max -= min;
-        return (int) (Math.random() * ++max) + min;
+        return (int) (Math.random() * + max) + min;
     }
 }
 
