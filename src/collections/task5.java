@@ -6,7 +6,6 @@ package collections;
 слабого и самого сильного рыцаря из списка 10 рыцарей используя treeSet
  */
 
-import java.util.Comparator;
 import java.util.Random;
 import java.util.TreeSet;
 
@@ -42,7 +41,7 @@ class Warrior implements Comparable<Warrior> {
 
     public Warrior() {
         random = new Random();
-        name = Generator.getNames();
+        name = Generator.getWarriorNames();
         hp = random.nextInt(50) + 150;
         dmg = random.nextInt(30) + 5;
     }
@@ -74,13 +73,36 @@ class Warrior implements Comparable<Warrior> {
 
 class Generator {
     static Random random = new Random();
-    public static String[] names = {"warrior0", "warrior1", "warrior2", "warrior3",
+    private static String[] warriorNames = {"warrior0", "warrior1", "warrior2", "warrior3",
             "warrior4", "warrior5", "warrior6", "warrior7",
             "warrior8", "warrior9" };
 
-    public static String getNames() {
-        return names[random.nextInt(names.length)];
+    public static String getWarriorNames() {
+        return warriorNames[random.nextInt(warriorNames.length)];
     }
 
+    public static String[] kingNames = {"Fridrich", "Alonso", "Arthur"};
+
+    public static String getKingNames(){
+        return kingNames[random.nextInt(kingNames.length)];
+    }
+
+    public static String[] nobleNames = {"Dart", "Shwart", "Greg", "Tom", "John", "Puss", "Calvin", "Frank"};
+
+    public static String getNobleNames(){
+        return nobleNames[random.nextInt(nobleNames.length)];
+    }
+
+    public static String[] knightNames = {"Brock", "Stan", "Lee", "Chen", "Austin", "Sven", "Gil", "Friez"};
+
+    public static String getKnightNames(){
+        return knightNames[random.nextInt(knightNames.length)];
+    }
+
+    public static String[] peasantNames = {"Bob", "Trev", "Igua", "Stain", "Bill", "Franc", "Jeff", "Clark"};
+
+    public static String getPeasantNames (){
+        return peasantNames[random.nextInt(peasantNames.length)];
+    }
 }
 
