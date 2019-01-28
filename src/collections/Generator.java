@@ -16,7 +16,7 @@ public class Generator {
             byte[] buffer = new byte[bis.available()];
             bis.read(buffer, 0, bis.available());
             String fileNames = new String(buffer);
-            String[] arrFileNames = fileNames.split("\n");
+            String[] arrFileNames = fileNames.split("\r\n");
             return arrFileNames[random.nextInt(arrFileNames.length)];
         }
 
