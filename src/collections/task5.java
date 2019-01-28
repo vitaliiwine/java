@@ -21,7 +21,6 @@ public class task5 {
         }
         for (Warrior warrior : warriors) {
             System.out.println(warrior);
-
         }
     }
 }
