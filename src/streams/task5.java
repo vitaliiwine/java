@@ -24,7 +24,6 @@ public class task5 {
     public static void main(String[] args) throws IOException {
         Dance dance = new Dance();
         dance.startDance();
-
     }
 }
 
@@ -103,9 +102,6 @@ class Dance {
                 }
 
                 String dancerPosition = "";
-                for (Dancer i : dancers) {
-                    System.out.print(i.name + ": " + i.x + "/" + i.y);
-                }
 
                 for (int i = 0; i < dancers.size(); i += 2) {
                     //System.out.println(dancers.get(i).name + " " + dancers.get(i + 1).name);
