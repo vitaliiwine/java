@@ -1,43 +1,43 @@
 package threads;
 
+import java.util.concurrent.Semaphore;
+
 public class task6 {
     public static void main(String[] args) {
-        CommonResource commonResource = new CommonResource();
-        for (int i = 1; i < 6 ; i++) {
-            Thread t = new Thread(new CountThread(commonResource));
-            t.setName("Thread " + i);
-            t.start();
 
-        }
     }
 }
 
 
-class CountThread extends CommonResource implements Runnable {
+class CountThread implements Runnable {
     CommonResource res;
+    Semaphore sem;
+    String name;
 
-    
-
-    CountThread(CommonResource res) {
+    CountThread(CommonResource res, Semaphore sem, String name) {
         this.res = res;
     }
 
     @Override
     public void run() {
-        synchronized (res) {
+        try {
+            System.out.println(name + " waits for the boiler access");
+            sem.acquire();
+            System.out.println(name + " got boiler access!");
             res.x = 1;
             for (int i = 1; i < 5; i++) {
-                System.out.printf("%s %d \n", Thread.currentThread().getName(), res.x);
+                System.out.println(this.name + ": " + res.x);
                 res.x++;
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                }
+                Thread.sleep(100);
             }
+        } catch (InterruptedException e){
+            System.out.println(e.getMessage());
         }
+        System.out.println(name + "frees up boiler access");
     }
+
 }
 
 class CommonResource {
-   int x = 0;
+    int x = 0;
 }
