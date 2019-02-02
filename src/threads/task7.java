@@ -44,7 +44,7 @@ class Mine {
         return gold;
     }
 
-    public boolean goldAvailable() {
+    public synchronized boolean goldAvailable() {
         if (this.gold > 0) {
             return true;
         } else
@@ -84,7 +84,7 @@ class Castle {
         return space;
     }
 
-    public boolean spaceAvailable() {
+    public synchronized boolean spaceAvailable() {
         if (this.space > 0) {
             return true;
         } else
@@ -132,13 +132,14 @@ class Worker implements Runnable {
         System.out.println(name + ": Ready to work!");
         while (mine.goldAvailable() && castle.spaceAvailable()) {
             System.out.println(name + ": Going to the mine!");
-            gold += mine.getGoldFromMine(10);
+            if ((gold += mine.getGoldFromMine(10)) != 0){
 
             System.out.println(name + ": Oh yeah, I've got " + gold + " coins in my bag!\n"
                     + "Now I'm taking this gold to the Castle's storehouse!");
             gold -= castle.putGoldToStore(10);
                 System.out.println("I have put gold to the storehouse!");
             }
+        }
         System.out.println(name + ": The mine is empty! Fuck!");
         System.out.println(name + ": Storage is full! Fuck!");
     }
