@@ -10,9 +10,9 @@ public class task3 {
         newInts.maxOfInts(28, 66);
         newInts.sumOfInts(28, 66);
         newInts.printInts(28, 66);
-        newInts.showIntsbefore();
+        newInts.showIntsBefore();
         newInts.change(4,3);
-        newInts.showIntsafter();
+        newInts.showIntsAfter();
     }
 
 }
@@ -21,12 +21,12 @@ class Ints{
     int weight = 82;
     int age = 27;
 
-    public void showIntsbefore(){
+    public void showIntsBefore(){
         System.out.println("Weight before change " + weight);
         System.out.println("Age before change " + age);
     }
 
-    public void showIntsafter(){
+    public void showIntsAfter(){
         System.out.println("Weight after change " + weight);
         System.out.println("Age after change " + age);
     }

@@ -6,6 +6,8 @@ package collections;
 критериям количество здоровья, количество брони и наносимый урон.
  */
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Random;
 import java.util.TreeSet;
 
@@ -19,9 +21,9 @@ public class task6 {
 
 
         for (Character character : characters) {
-           if(character.equals(characters.last()))
-               System.out.println("The winner is ");
-               System.out.println(character);
+            if (character.equals(characters.last()))
+                System.out.println("The winner is ");
+            System.out.println(character);
         }
 
 //        System.out.println("The winner is " + "\n" + characters.last());
@@ -103,16 +105,19 @@ class Builder {
     static String[] names = {"Bane", "Chaos Knight", "Phantom Assassin",
             "Abaddon", "Bristleback", "Alchemist", "Sven",
             "Terrorblade", "Spectre", "Night Stalker"};
-//    static int[] healthPoints = {670, 790, 550, 460, 580, 660, 700, 650, 690, 600};
-//    static int[] damages = {78, 60, 58, 65, 71, 61, 55, 75, 64, 72};
-//    static int[] armors = {3, 4, 2, 5, 1};
 
+    /*
+static int[] healthPoints = {670, 790, 550, 460, 580, 660, 700, 650, 690, 600};
+static int[] damages = {78, 60, 58, 65, 71, 61, 55, 75, 64, 72};
+static int[] armors = {3, 4, 2, 5, 1};
+*/
     static String getNames() {
         return names[random.nextInt(names.length)];
     }
 
+
     static int getHealthPoints() {
-        return rnd(550,700);
+        return rnd(550, 700);
     }
 
     static int getDamages() {
